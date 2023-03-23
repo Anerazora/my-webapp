@@ -1,5 +1,4 @@
 import './App.css';
-import Producto from './Components/Producto';
 import Productos from './Components/Productos/Productos';
 import Header from './Components/UI/Header';
 import Footer from './Components/UI/Footer';
