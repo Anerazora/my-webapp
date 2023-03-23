@@ -1,10 +1,11 @@
 import './App.css';
 import Producto from './Components/Producto';
-import Productos from './Components/Productos';
+import Productos from './Components/Productos/Productos';
 import Header from './Components/UI/Header';
 import Footer from './Components/UI/Footer';
 import NuevoProducto from './Components/NuevoProducto/NuevoProducto';
 import {useState} from 'react';
+import FiltroProductos from './Components/Productos/FiltroProductos';
 
 
 function App() {
@@ -15,25 +16,25 @@ function App() {
         id: Math.random().toString(),
         nombre: 'Ratón óptico 1',
         precio: 15.50,
-        fecha: new Date(2022, 2, 2)
+        fecha: new Date(2023, 2, 2)
       },
       {
         id: Math.random().toString(),
         nombre: 'Ratón óptico 2',
         precio: 25.50,
-        fecha: new Date(2022, 2, 2)
+        fecha: new Date(2023, 2, 2)
       },
       {
         id: Math.random().toString(),
         nombre: 'Ratón óptico 3',
         precio: 9.50,
-        fecha: new Date(2022, 2, 2)
+        fecha: new Date(2024, 2, 2)
       },
       {
         id: Math.random().toString(),
         nombre: 'Ratón óptico 4',
         precio: 10.5,
-        fecha: new Date(2022, 2, 5)
+        fecha: new Date(2024, 2, 5)
       }
     ]
   )
@@ -45,11 +46,19 @@ function App() {
     });
   }
 
+  const borraProducto = (id) => {
+    let copiaProductos = [...productos];
+    copiaProductos = copiaProductos.filter((elemento) => {
+      return elemento.id !== id;
+    })
+    setProductos(copiaProductos);
+  }
+
 return (
   <div>
     <Header />
     <NuevoProducto addProducto={addProducto} />
-    <Productos productos={productos} />
+    <Productos productos={productos} borraProducto={borraProducto} />
     <Footer />
   </div>
 );
