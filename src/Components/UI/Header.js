@@ -39,7 +39,7 @@ function Header() {
                     <Link to='/new-product'>Nuevo producto</Link> | {'   '}
                 </Nav.Item>
                 <Nav.Item>
-                    <Link to='/contact?sede=Pamplona&persona=Jesús'>Contacto</Link>
+                    <Link to='/contact?sede=PAMPLONA&persona=Jesús'>Contacto</Link>
                 </Nav.Item>
             </Nav>
         </div>

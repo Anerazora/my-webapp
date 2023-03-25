@@ -1,11 +1,15 @@
 import FiltroProductos from './FiltroProductos';
 import Producto from './Producto';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 
 function Productos(props) {
 
     const [ano, setAno] = useState('');
+
+    useEffect(() => {
+        //console.log('Se monta productos');
+    })
 
     const updateAno = (ano) => {
         setAno(ano);
