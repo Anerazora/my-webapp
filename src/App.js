@@ -3,11 +3,15 @@ import Productos from './Components/Productos/Productos';
 import Header from './Components/UI/Header';
 import Footer from './Components/UI/Footer';
 import NuevoProducto from './Components/NuevoProducto/NuevoProducto';
-import {useState} from 'react';
-import FiltroProductos from './Components/Productos/FiltroProductos';
+import { useState } from 'react';
+import AutContext from './Store/AutContext';
+import ProductosContext from './Store/ProductosContext';
 
 
 function App() {
+
+  const [login, setLogin] = useState(false);
+  const [language, setLanguage] = useState('en-EN');
 
   const [productos, setProductos] = useState(
     [
@@ -55,10 +59,14 @@ function App() {
 
 return (
   <div>
-    <Header />
-    <NuevoProducto addProducto={addProducto} />
-    <Productos productos={productos} borraProducto={borraProducto} />
-    <Footer />
+     <AutContext.Provider value={{ login: login, language: language }}>
+        <Header />
+        <NuevoProducto addProducto={addProducto} />
+        <ProductosContext.Provider value={{borraProducto: borraProducto}}>
+          <Productos productos={productos} borraProducto={borraProducto} />
+        </ProductosContext.Provider>
+        <Footer />
+      </AutContext.Provider>
   </div>
 );
 }
