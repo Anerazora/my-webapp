@@ -13,6 +13,7 @@ import Contact from './Pages/Contact';
 import ErrorPage from './Pages/ErrorPage';
 import DetalleProducto from './Components/Productos/DetalleProducto';
 import EditarProducto from './Components/EditarProducto/EditarProducto';
+import GestorProductos from './Components/Productos/GestorProductos';
 
 function App() {
 
@@ -71,7 +72,7 @@ function App() {
   </>
   const contenidoProductos = <>
     <ProductosContext.Provider value={{ borraProducto: borraProducto }}>
-      <Productos productos={productos} borraProducto={borraProducto} />
+      <GestorProductos productos={productos} borraProducto={borraProducto} />
     </ProductosContext.Provider>
   </>
 

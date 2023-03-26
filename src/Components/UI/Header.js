@@ -33,7 +33,7 @@ function Header() {
                     <Link to='/about-us'>Quiénes somos</Link> | {'   '}
                 </Nav.Item>
                 <Nav.Item>
-                    <Link to='/products'>Productos</Link> | {'   '}
+                    <Link to='/products'>Gestor Productos</Link> | {'   '}
                 </Nav.Item>
                 <Nav.Item>
                     <Link to='/new-product'>Nuevo producto</Link> | {'   '}
