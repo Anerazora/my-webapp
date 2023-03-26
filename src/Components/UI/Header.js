@@ -30,7 +30,7 @@ function Header() {
                     <Link to='/'>Inicio</Link> | {'   '}
                 </Nav.Item>
                 <Nav.Item>
-                    <Link to='/about-us'>Quiénes somos</Link> | {'   '}
+                    <Link to='/carrito'>Carrito</Link> | {'   '}
                 </Nav.Item>
                 <Nav.Item>
                     <Link to='/products'>Gestor Productos</Link> | {'   '}

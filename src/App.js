@@ -8,7 +8,7 @@ import AutContext from './Store/AutContext';
 import ProductosContext from './Store/ProductosContext';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
-import AboutUs from './Pages/AboutUs';
+import Carrito from './Pages/Carrito';
 import Contact from './Pages/Contact';
 import ErrorPage from './Pages/ErrorPage';
 import DetalleProducto from './Components/Productos/DetalleProducto';
@@ -82,7 +82,7 @@ return (
         <Header />
         <Routes>
           <Route path='/' element={listProductos} />
-          <Route path='/about-us' element={<AboutUs />} />
+          <Route path='/carrito' element={<Carrito/>} />
           <Route path='/products' element={contenidoProductos} />
           <Route path='/product/:id' element={<DetalleProducto/>} />
           <Route path='/product/edit/:id' element={<EditarProducto/>} />
