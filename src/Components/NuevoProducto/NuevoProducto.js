@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import ReactDOM from 'react-dom';
 import './NuevoProducto.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const InfoModal = (props) => {
 
@@ -35,6 +36,7 @@ const NuevoProducto = (props) => {
     const [nombre, setNombre] = useState('');
     const [precio, setPrecio] = useState('');
     const [fecha, setFecha] = useState('');
+    const [descripcion, setDescripcion] = useState('');
 
     const nombreRef = useRef();
 
@@ -43,7 +45,7 @@ const NuevoProducto = (props) => {
     const navega = useNavigate();
 
     useEffect(() => {
-         //nombreRef.current.focus(); //Lo comento por comodidad
+        //nombreRef.current.focus(); //Lo comento por comodidad
     }, []);
 
     const nombreHandler = (event) => {
@@ -59,21 +61,31 @@ const NuevoProducto = (props) => {
         setFecha(event.target.value);
     }
 
+    const descripcionHandler = (event) => {
+        setDescripcion(event.target.value);
+    }
+
     const submitHandler = (event) => {
         event.preventDefault();
         const producto = {
             id: Math.random().toString(),
             nombre: nombre,
             precio: precio,
-            fecha: new Date(fecha)
+            fecha: new Date(fecha),
+            descripcion: descripcion
         }
         props.addProducto(producto);
         setNombre('');
         setPrecio('');
         setFecha('');
-         //nombreRef.current.focus(); //Lo comento por comodidad
+        //nombreRef.current.focus(); //Lo comento por comodidad
         // nombreRef.current.value = '';
-        setTimeout(()=>navega('/products'),1000);//Hace como un timeout de retardo para que parezca que piensa
+        //setTimeout(()=>navega('/products'),1000);
+
+        axios.post('https://my-webapp-625d3-default-rtdb.europe-west1.firebasedatabase.app/productos.json', producto)
+            .then((response) => {
+                alert('El producto se ha insertado en la base de datos');
+            })
     }
 
     const onBlurHandler = () => {
@@ -100,6 +112,8 @@ const NuevoProducto = (props) => {
                             <Form.Control onChange={precioHandler} type='number' value={precio} /></Col>
                         <Col><Form.Label>Fecha: </Form.Label>
                             <Form.Control onChange={fechaHandler} type='date' value={fecha} /></Col>
+                        <Col><Form.Label>Descripción: </Form.Label>
+                            <Form.Control onChange={descripcionHandler} type='text' value={descripcion} /></Col>
                         <Col><Button type='submit' variant="success">AÑADIR PRODUCTO</Button></Col>
                     </Row>
                 </Container>

@@ -17,6 +17,7 @@ const FiltroProductos = (props) => {
                     <Form.Label>Seseccione año:</Form.Label>
                     <Form.Select onChange={anoHandler}>
                         <option value=''>Ver todos</option>
+                        <option value='2022'>2023</option>
                         <option value='2023'>2023</option>
                         <option value='2024'>2024</option>
                         <option value='2025'>2025</option>
