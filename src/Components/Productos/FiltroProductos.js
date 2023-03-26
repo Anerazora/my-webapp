@@ -14,7 +14,7 @@ const FiltroProductos = (props) => {
         <Container>
             <Row>
                 <Col md={4}>
-                    <Form.Label>Seseccione año:</Form.Label>
+                    <Form.Label>Seleccione año:</Form.Label>
                     <Form.Select onChange={anoHandler}>
                         <option value=''>Ver todos</option>
                         <option value='2022'>2023</option>

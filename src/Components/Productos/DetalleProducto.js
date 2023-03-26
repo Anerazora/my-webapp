@@ -10,7 +10,7 @@ const DetalleProducto = () => {
     const [producto, setProducto] = useState([]);
 
     useEffect(() => {
-        axios.get('https://my-webapp-625d3-default-rtdb.europe-west1.firebasedatabase.app/productos.json?orderBy="$key"&equalTo="' + parametros.id + '"')
+        axios.get('https://dsm-react-demo-2023-default-rtdb.europe-west1.firebasedatabase.app/productos.json?orderBy="$key"&equalTo="' + parametros.id + '"')
             .then((response) => {
                 //console.log(response.data);
                 let arrayProducto = [];
