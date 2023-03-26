@@ -1,5 +1,5 @@
 import FiltroProductos from './FiltroProductos';
-import Producto from './Producto';
+// import Producto from './Producto';
 import { useEffect, useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import axios from 'axios';

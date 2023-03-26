@@ -26,25 +26,25 @@ function App() {
         id: Math.random().toString(),
         nombre: 'Ratón óptico 1',
         precio: 15.50,
-        fecha: new Date(2023, 2, 2)
+        // fecha: new Date(2023, 2, 2)
       },
       {
         id: Math.random().toString(),
         nombre: 'Ratón óptico 2',
         precio: 25.50,
-        fecha: new Date(2023, 2, 2)
+        // fecha: new Date(2023, 2, 2)
       },
       {
         id: Math.random().toString(),
         nombre: 'Ratón óptico 3',
         precio: 9.50,
-        fecha: new Date(2024, 2, 2)
+        // fecha: new Date(2024, 2, 2)
       },
       {
         id: Math.random().toString(),
         nombre: 'Ratón óptico 4',
         precio: 10.5,
-        fecha: new Date(2024, 2, 5)
+        // fecha: new Date(2024, 2, 5)
       }
     ]
   )
