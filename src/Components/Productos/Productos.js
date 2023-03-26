@@ -22,7 +22,8 @@ function Productos(props) {
                         nombre: response.data[key].nombre,
                         precio: response.data[key].precio,
                         fecha: new Date(response.data[key].fecha),
-                        descripcion: response.data[key].descripcion
+                        descripcion: response.data[key].descripcion,
+                        imagen: response.data[key].imagen
                     })
                 }
                 //console.log(arrayProductos);
@@ -53,12 +54,12 @@ function Productos(props) {
                         <Producto key={elemento.id} producto={elemento} borraProducto={props.borraProducto} />
                     )
                 })}
-                <h1>-----------------------------------------</h1>
+                {/* <h1>-----------------------------------------</h1>
                 {productosFiltrados.map((elemento) => {
                     return (
                         <Producto key={elemento.id} producto={elemento} borraProducto={props.borraProducto} />
                     )
-                })}
+                })} */}
             </div>)
     }
     return (

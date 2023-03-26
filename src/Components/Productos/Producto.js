@@ -40,8 +40,8 @@ function Producto(props) {
     return (
         <div className='producto'>
             <FechaProducto fecha={props.producto.fecha} />
-            <div className='producto__descripcion'>
-            <h2>{nombre} - <Button variant="outline-warning"><Link to={`/product/${props.producto.id}?format=extended`}>Ver detalles</Link></Button></h2>
+            <div className='producto__descripcion'>          
+            <h2>{nombre} <img style={{width: '100px'}} alt='' src={props.producto.imagen}/>- <Button variant="outline-warning"><Link to={`/product/${props.producto.id}?format=extended`}>Ver detalles</Link></Button></h2>
                 <div className='producto__precio'>{precio}</div>
             </div>
             <Button onClick={clickHandler}>Cambia nombre</Button>
