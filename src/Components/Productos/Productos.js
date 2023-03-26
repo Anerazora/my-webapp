@@ -3,6 +3,7 @@ import Producto from './Producto';
 import { useEffect, useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import axios from 'axios';
+import ListadoProductos from './ListadoProductos';
 
 function Productos(props) {
 
@@ -51,7 +52,8 @@ function Productos(props) {
             <div>
                {productos.map((elemento) => {
                     return (
-                        <Producto key={elemento.id} producto={elemento} borraProducto={props.borraProducto} />
+                        // <Producto key={elemento.id} producto={elemento} borraProducto={props.borraProducto} />
+                        <ListadoProductos key={elemento.id} producto={elemento} borraProducto={props.borraProducto} />
                     )
                 })}
                 {/* <h1>-----------------------------------------</h1>

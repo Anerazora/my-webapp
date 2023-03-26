@@ -63,6 +63,12 @@ function App() {
     setProductos(copiaProductos);
   }
 
+//Añado esto para la pagina principal
+  const listProductos = <>
+    <ProductosContext.Provider value={{ borraProducto: borraProducto }}>
+      <Productos productos={productos} borraProducto={borraProducto} />
+    </ProductosContext.Provider>
+  </>
   const contenidoProductos = <>
     <ProductosContext.Provider value={{ borraProducto: borraProducto }}>
       <Productos productos={productos} borraProducto={borraProducto} />
@@ -74,7 +80,7 @@ return (
      <AutContext.Provider value={{ login: login, language: language }}>
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={listProductos} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/products' element={contenidoProductos} />
           <Route path='/product/:id' element={<DetalleProducto/>} />
