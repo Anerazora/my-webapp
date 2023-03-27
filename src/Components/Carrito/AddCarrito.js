@@ -11,23 +11,23 @@ import axios from 'axios';
 
 const InfoModal = (props) => {
 
-    const [open, setOpen] = useState(true);
+    // const [open, setOpen] = useState(true);
 
-    const clickHandler = () => {
-        setOpen(false);
-    }
+    // const clickHandler = () => {
+    //     setOpen(false);
+    // }
 
-    if (open) {
-        return (
-            <>
-                <h1>{props.titulo}</h1>
-                <p>{props.mensaje}</p>
-                <button onClick={clickHandler}>CERRAR</button>
-            </>
-        )
-    }
+    // if (open) {
+    //     return (
+    //         <>
+    //             <h1>{props.titulo}</h1>
+    //             <p>{props.mensaje}</p>
+    //             <button onClick={clickHandler}>CERRAR</button>
+    //         </>
+    //     )
+    // }
 
-    return null;
+    // return null;
 
 }
 
