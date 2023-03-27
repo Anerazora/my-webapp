@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactDOM from 'react-dom';
-import './NuevoProducto.css';
+import './AddCarrito.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -31,13 +31,14 @@ const InfoModal = (props) => {
 
 }
 
-const NuevoProducto = (props) => {
+const AddCarrito = (props) => {
 
     const [nombre, setNombre] = useState('');
     const [precio, setPrecio] = useState('');
     const [fecha, setFecha] = useState('');
     const [descripcion, setDescripcion] = useState('');
     const [cantidad, setCantidad] = useState('');
+
     const nombreRef = useRef();
 
     const [nombreValid, setNombreValid] = useState(true);
@@ -71,7 +72,7 @@ const NuevoProducto = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        const producto = {
+        const carrito = {
             id: Math.random().toString(),
             nombre: nombre,
             precio: precio,
@@ -79,7 +80,7 @@ const NuevoProducto = (props) => {
             descripcion: descripcion,
             cantidad: cantidad
         }
-        props.addProducto(producto);
+        props.addCarrito(carrito);
         setNombre('');
         setPrecio('');
         setFecha('');
@@ -88,7 +89,7 @@ const NuevoProducto = (props) => {
         // nombreRef.current.value = '';
         //setTimeout(()=>navega('/products'),1000);
 
-        axios.post('https://my-webapp-625d3-default-rtdb.europe-west1.firebasedatabase.app/productos.json', producto)
+        axios.post('https://my-webapp-625d3-default-rtdb.europe-west1.firebasedatabase.app/productos.json', carrito)
             .then((response) => {
                 alert('El producto se ha insertado en la base de datos');
             })
@@ -130,4 +131,4 @@ const NuevoProducto = (props) => {
     )
 }
 
-export default NuevoProducto;
+export default AddCarrito;

@@ -3,6 +3,7 @@ import Productos from './Components/Productos/Productos';
 import Header from './Components/UI/Header';
 import Footer from './Components/UI/Footer';
 import NuevoProducto from './Components/NuevoProducto/NuevoProducto';
+import AddCarrito from './Components/Carrito/AddCarrito';
 import { useState } from 'react';
 import AutContext from './Store/AutContext';
 import ProductosContext from './Store/ProductosContext';
@@ -88,6 +89,7 @@ return (
           <Route path='/product/edit/:id' element={<EditarProducto/>} />
           <Route path='/new-product' element={<NuevoProducto addProducto={addProducto} />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/add-carrito' element={<AddCarrito />} />
           <Route path='*' element={<ErrorPage/>} />
         </Routes>
         <Footer />

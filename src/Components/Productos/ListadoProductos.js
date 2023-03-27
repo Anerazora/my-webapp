@@ -43,7 +43,7 @@ function ListadoProductos(props) {
         <div className='producto'>
             {/* <FechaProducto fecha={props.producto.fecha} /> */}
             <div className='producto__descripcion'>
-                <h2>Producto: {nombre} <img style={{ width: '100px' }} alt='' src={props.producto.imagen} />
+                <h2>Producto: {nombre} <p><img style={{ width: '100px' }} alt='' src={props.producto.imagen} /></p>
                     {/* <button className="btn btn-sm btn-outline-primary" >+</button>
                     <button className="btn btn-sm btn-outline-primary" >-</button> */}
                     <p>Precio: {precio} € </p><p>Descripción: {descripcion}</p> </h2>
