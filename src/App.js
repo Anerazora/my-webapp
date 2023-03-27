@@ -89,7 +89,7 @@ return (
           <Route path='/product/edit/:id' element={<EditarProducto/>} />
           <Route path='/new-product' element={<NuevoProducto addProducto={addProducto} />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/add-carrito' element={<AddCarrito />} />
+          <Route path='/add-carrito' element={<AddCarrito addProducto={addProducto} />} />
           <Route path='*' element={<ErrorPage/>} />
         </Routes>
         <Footer />

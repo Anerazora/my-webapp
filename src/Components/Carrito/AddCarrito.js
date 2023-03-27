@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactDOM from 'react-dom';
 import './AddCarrito.css';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const InfoModal = (props) => {
@@ -31,40 +31,39 @@ const InfoModal = (props) => {
 
 }
 
-const AddCarrito = (props) => {
+const NuevoProducto = (props) => {
 
     const [nombre, setNombre] = useState('');
     const [precio, setPrecio] = useState('');
-    const [fecha, setFecha] = useState('');
-    const [descripcion, setDescripcion] = useState('');
+    // const [fecha, setFecha] = useState('');
+    // const [descripcion, setDescripcion] = useState('');
     const [cantidad, setCantidad] = useState('');
-
     const nombreRef = useRef();
 
     const [nombreValid, setNombreValid] = useState(true);
 
-    const navega = useNavigate();
+    // const navega = useNavigate();
 
     useEffect(() => {
         //nombreRef.current.focus(); //Lo comento por comodidad
     }, []);
 
     const nombreHandler = (event) => {
-        setNombre(event.target.value);
-        setNombreValid(true)
-    }
+         setNombre(event.target.value);
+         setNombreValid(true)
+     }
 
     const precioHandler = (event) => {
-        setPrecio(event.target.value);
-    }
+         setPrecio(event.target.value);
+     }
 
-    const fechaHandler = (event) => {
-        setFecha(event.target.value);
-    }
+    // const fechaHandler = (event) => {
+    //     setFecha(event.target.value);
+    // }
 
-    const descripcionHandler = (event) => {
-        setDescripcion(event.target.value);
-    }
+    // const descripcionHandler = (event) => {
+    //     setDescripcion(event.target.value);
+    // }
 
     const cantidadHandler = (event) => {
         setCantidad(event.target.value);
@@ -72,30 +71,30 @@ const AddCarrito = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        const carrito = {
-            id: Math.random().toString(),
+        const producto = {
+            //id: Math.random().toString(),
             nombre: nombre,
             precio: precio,
-            fecha: new Date(fecha),
-            descripcion: descripcion,
+            // fecha: new Date(fecha),
+            // descripcion: descripcion,
             cantidad: cantidad
         }
-        props.addCarrito(carrito);
+        props.addProducto(producto);
         setNombre('');
         setPrecio('');
-        setFecha('');
+        // setFecha('');
         setCantidad('');
         //nombreRef.current.focus(); //Lo comento por comodidad
         // nombreRef.current.value = '';
         //setTimeout(()=>navega('/products'),1000);
 
-        axios.post('https://my-webapp-625d3-default-rtdb.europe-west1.firebasedatabase.app/productos.json', carrito)
+        axios.post('https://my-webapp-625d3-default-rtdb.europe-west1.firebasedatabase.app/pedidos.json', producto)
             .then((response) => {
                 alert('El producto se ha insertado en la base de datos');
             })
     }
 
-    const onBlurHandler = () => {
+     const onBlurHandler = () => {
         if (nombre.length === 0) { setNombreValid(false) }
     }
 
@@ -113,14 +112,15 @@ const AddCarrito = (props) => {
             <Form onSubmit={submitHandler}>
                 <Container>
                     <Row>
-                        <Col><Form.Label className={`${nombreValid ? '' : 'invalid'}`}>Nombre: </Form.Label>
+                       <Col><Form.Label className={`${nombreValid ? '' : 'invalid'}`}>Nombre: </Form.Label>
                             <Form.Control ref={nombreRef} onChange={nombreHandler} onBlur={onBlurHandler} type='text' value={nombre} /></Col>
                         <Col><Form.Label>Precio: </Form.Label>
                             <Form.Control onChange={precioHandler} type='number' value={precio} /></Col>
+                             {/* 
                         <Col><Form.Label>Fecha: </Form.Label>
                             <Form.Control onChange={fechaHandler} type='date' value={fecha} /></Col>
                         <Col><Form.Label>Descripción: </Form.Label>
-                            <Form.Control onChange={descripcionHandler} type='text' value={descripcion} /></Col>
+                            <Form.Control onChange={descripcionHandler} type='text' value={descripcion} /></Col> */}
                         <Col><Form.Label>Cantidad: </Form.Label>
                             <Form.Control onChange={cantidadHandler} type='number' value={cantidad} /></Col>
                         <Col><Button type='submit' variant="success">AÑADIR PRODUCTO</Button></Col>
@@ -131,4 +131,4 @@ const AddCarrito = (props) => {
     )
 }
 
-export default AddCarrito;
+export default NuevoProducto;
